@@ -1,0 +1,109 @@
+.food-page {
+    min-height: 100vh;
+
+    padding: 0 6vw 80px;
+}
+
+
+/* -------------------------
+   HERO
+------------------------- */
+
+.hero {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding:
+        120px
+        0
+        100px;
+
+    text-align: center;
+}
+
+
+.hero-eyebrow,
+.section-eyebrow {
+    margin: 0 0 16px;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    color: #888;
+}
+
+
+.hero h1 {
+    margin: 0;
+
+    font-family: Georgia, serif;
+
+    font-size:
+        clamp(3.5rem, 8vw, 7rem);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.04em;
+}
+
+
+.hero-description {
+    max-width: 500px;
+
+    margin:
+        32px
+        auto
+        0;
+
+    font-size: 1.1rem;
+
+    line-height: 1.6;
+
+    color: #666;
+}
+
+
+/* -------------------------
+   GALLERY
+------------------------- */
+
+.gallery-section {
+    max-width: 1400px;
+
+    margin: 0 auto;
+}
+
+
+.gallery-header {
+    display: flex;
+
+    align-items: end;
+    justify-content: space-between;
+
+    margin-bottom: 32px;
+}
+
+
+.gallery-header h2 {
+    margin: 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 2.5rem;
+
+    font-weight: 400;
+}
+
+
+.food-count {
+    margin: 0;
+
+    color: #888;
+
+    font-size: 0.9rem;
+}

@@ -1,0 +1,158 @@
+.food-filters {
+    margin-bottom: 56px;
+}
+
+
+/* -------------------------
+   SEARCH
+------------------------- */
+
+.food-search {
+    position: relative;
+
+    max-width: 600px;
+
+    margin-bottom: 24px;
+}
+
+
+.food-search input {
+    width: 100%;
+
+    padding:
+        16px
+        48px
+        16px
+        48px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 100px;
+
+    outline: none;
+
+    background: white;
+
+    font-size: 0.95rem;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.food-search input:focus {
+    border-color: #999;
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+
+.food-search-icon {
+    position: absolute;
+
+    left: 20px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #888;
+
+    font-size: 1.2rem;
+
+    pointer-events: none;
+}
+
+
+.food-search-clear {
+    position: absolute;
+
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 30px;
+    height: 30px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #eee;
+
+    color: #666;
+
+    cursor: pointer;
+}
+
+
+/* -------------------------
+   CATEGORIES
+------------------------- */
+
+.food-categories {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+.food-categories button {
+    padding:
+        9px
+        18px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 100px;
+
+    background: transparent;
+
+    color: #666;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.food-categories button:hover {
+    border-color: #aaa;
+
+    color: #222;
+}
+
+
+.food-categories button.active {
+    border-color: #222;
+
+    background: #222;
+
+    color: white;
+}
+
+
+@media (max-width: 500px) {
+    .food-filters {
+        margin-bottom: 40px;
+    }
+
+    .food-categories {
+        overflow-x: auto;
+
+        flex-wrap: nowrap;
+
+        padding-bottom: 6px;
+    }
+
+    .food-categories button {
+        flex-shrink: 0;
+    }
+}

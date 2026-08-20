@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+
+    background: #f8f7f4;
+
+    color: #222;
+
+    font-family:
+        Arial,
+        sans-serif;
+}

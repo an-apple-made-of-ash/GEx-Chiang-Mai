@@ -1,0 +1,352 @@
+.food-modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        rgba(0, 0, 0, 0.55);
+
+    backdrop-filter: blur(6px);
+
+    animation:
+        modal-fade-in 0.2s ease;
+}
+
+
+.food-modal {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(280px, 1fr)
+        minmax(300px, 1fr);
+
+    width: min(1000px, 100%);
+
+    max-height: 90vh;
+
+    overflow: hidden;
+
+    border-radius: 6px;
+
+    background: #f8f7f4;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.25);
+
+    animation:
+        modal-slide-up 0.25s ease;
+}
+
+
+/* -------------------------
+   CLOSE BUTTON
+------------------------- */
+
+.food-modal-close {
+    position: absolute;
+
+    top: 16px;
+    right: 16px;
+
+    z-index: 2;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    cursor: pointer;
+}
+
+
+.close-icon {
+    position: relative;
+
+    width: 18px;
+    height: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        transform 0.25s ease;
+}
+
+
+.close-line {
+    position: absolute;
+
+    width: 18px;
+    height: 1.5px;
+
+    background: #222;
+
+    border-radius: 2px;
+}
+
+
+.close-line-one {
+    transform: rotate(45deg);
+}
+
+
+.close-line-two {
+    transform: rotate(-45deg);
+}
+
+
+.food-modal-close:hover {
+    background: white;
+}
+
+
+.food-modal-close:hover .close-icon {
+    transform: rotate(90deg);
+}
+
+
+/* -------------------------
+   IMAGE
+------------------------- */
+
+.food-modal-image {
+    min-height: 500px;
+
+    background: #eee;
+}
+
+
+.food-modal-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+.food-modal-placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #888;
+}
+
+
+/* -------------------------
+   CONTENT
+------------------------- */
+
+.food-modal-content {
+    padding: 60px 50px;
+
+    overflow-y: auto;
+}
+
+
+.food-modal-category {
+    margin: 0 0 12px;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    letter-spacing: 0.15em;
+
+    text-transform: uppercase;
+
+    color: #888;
+}
+
+
+.food-modal-content h2 {
+    margin: 0 0 20px;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(2.5rem, 5vw, 4rem);
+
+    font-weight: 400;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.03em;
+}
+
+
+.food-modal-description {
+    margin: 0;
+
+    color: #666;
+
+    line-height: 1.7;
+}
+
+
+/* -------------------------
+   SECTIONS
+------------------------- */
+
+.food-modal-section {
+    margin-top: 40px;
+
+    padding-top: 30px;
+
+    border-top: 1px solid #ddd;
+}
+
+
+.food-modal-section h3 {
+    margin: 0 0 12px;
+
+    font-size: 0.75rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.12em;
+}
+
+
+.food-modal-section p {
+    margin: 0;
+
+    color: #666;
+
+    line-height: 1.7;
+}
+
+
+/* -------------------------
+   NUTRITION
+------------------------- */
+
+.nutrition-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 24px;
+}
+
+
+.nutrition-grid div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.nutrition-grid strong {
+    font-family: Georgia, serif;
+
+    font-size: 1.5rem;
+
+    font-weight: 400;
+}
+
+
+.nutrition-grid span {
+    font-size: 0.75rem;
+
+    color: #888;
+}
+
+
+/* -------------------------
+   ANIMATIONS
+------------------------- */
+
+@keyframes modal-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes modal-slide-up {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* -------------------------
+   MOBILE
+------------------------- */
+
+@media (max-width: 750px) {
+
+    .food-modal-overlay {
+        padding: 15px;
+    }
+
+
+    .food-modal {
+        grid-template-columns: 1fr;
+
+        max-height: 95vh;
+
+        overflow-y: auto;
+    }
+
+
+    .food-modal-image {
+        min-height: 300px;
+
+        height: 45vh;
+    }
+
+
+    .food-modal-content {
+        padding: 35px 25px 45px;
+    }
+
+
+    .food-modal-content h2 {
+        font-size: 2.8rem;
+    }
+
+}
