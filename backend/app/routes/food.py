@@ -9,16 +9,30 @@ food_bp = Blueprint("food", __name__, url_prefix="/api/foods")
 def serialize_food(food):
     return {
         "id": food.id,
-        "name": food.name,
-        "description": food.description,
+
+        "english_name": food.english_name,
+        "thai_name": food.thai_name,
+        "brand": food.brand,
+
+        "price": food.price,
+        "serving_size": food.serving_size,
+
+        "calories": food.calories,
+        "total_fats": food.total_fats,
+        "saturated_fat": food.saturated_fat,
+        "cholesterol": food.cholesterol,
+        "protein": food.protein,
+        "total_carbohydrates": food.total_carbohydrates,
+        "dietary_fibre": food.dietary_fibre,
+        "total_sugars": food.total_sugars,
+        "sodium": food.sodium,
+
         "image": food.image,
         "category": food.category,
-        "calories": food.calories,
-        "protein": food.protein,
-        "carbohydrates": food.carbohydrates,
-        "fat": food.fat,
+
         "ingredients": food.ingredients,
         "allergens": food.allergens,
+
         "created_at": (
             food.created_at.isoformat()
             if food.created_at
