@@ -1,352 +1,379 @@
-.food-modal-overlay {
-    position: fixed;
+/* =========================================
+   MODAL OVERLAY
+   ========================================= */
 
-    inset: 0;
+.modal-overlay {
+  position: fixed;
+  inset: 0;
 
-    z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    display: flex;
+  background: rgba(0, 0, 0, 0.45);
 
-    align-items: center;
-    justify-content: center;
+  z-index: 1000;
 
-    padding: 30px;
-
-    background:
-        rgba(0, 0, 0, 0.55);
-
-    backdrop-filter: blur(6px);
-
-    animation:
-        modal-fade-in 0.2s ease;
+  padding: 20px;
 }
 
+
+/* =========================================
+   FOOD MODAL
+   ========================================= */
 
 .food-modal {
-    position: relative;
+  position: relative;
 
-    display: grid;
+  width: 90%;
+  max-width: 600px;
+  max-height: 85vh;
 
-    grid-template-columns:
-        minmax(280px, 1fr)
-        minmax(300px, 1fr);
+  background: white;
+  border-radius: 20px;
 
-    width: min(1000px, 100%);
+  overflow: hidden;
 
-    max-height: 90vh;
-
-    overflow: hidden;
-
-    border-radius: 6px;
-
-    background: #f8f7f4;
-
-    box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.25);
-
-    animation:
-        modal-slide-up 0.25s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 
-/* -------------------------
-   CLOSE BUTTON
-------------------------- */
-
-.food-modal-close {
-    position: absolute;
-
-    top: 16px;
-    right: 16px;
-
-    z-index: 2;
-
-    width: 40px;
-    height: 40px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 0;
-
-    border: none;
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.9);
-
-    cursor: pointer;
-}
-
-
-.close-icon {
-    position: relative;
-
-    width: 18px;
-    height: 18px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition:
-        transform 0.25s ease;
-}
-
-
-.close-line {
-    position: absolute;
-
-    width: 18px;
-    height: 1.5px;
-
-    background: #222;
-
-    border-radius: 2px;
-}
-
-
-.close-line-one {
-    transform: rotate(45deg);
-}
-
-
-.close-line-two {
-    transform: rotate(-45deg);
-}
-
-
-.food-modal-close:hover {
-    background: white;
-}
-
-
-.food-modal-close:hover .close-icon {
-    transform: rotate(90deg);
-}
-
-
-/* -------------------------
-   IMAGE
-------------------------- */
-
-.food-modal-image {
-    min-height: 500px;
-
-    background: #eee;
-}
-
-
-.food-modal-image img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-}
-
-
-.food-modal-placeholder {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    color: #888;
-}
-
-
-/* -------------------------
-   CONTENT
-------------------------- */
+/* =========================================
+   SCROLLABLE CONTENT
+   ========================================= */
 
 .food-modal-content {
-    padding: 60px 50px;
+  max-height: 85vh;
 
-    overflow-y: auto;
+  overflow-y: auto;
+
+  padding: 30px;
 }
 
 
-.food-modal-category {
-    margin: 0 0 12px;
+/* Scrollbar */
 
-    font-size: 0.7rem;
-    font-weight: 700;
+.food-modal-content::-webkit-scrollbar {
+  width: 6px;
+}
 
-    letter-spacing: 0.15em;
+.food-modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
 
-    text-transform: uppercase;
-
-    color: #888;
+.food-modal-content::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
 }
 
 
-.food-modal-content h2 {
-    margin: 0 0 20px;
+/* Firefox */
 
-    font-family: Georgia, serif;
-
-    font-size: clamp(2.5rem, 5vw, 4rem);
-
-    font-weight: 400;
-
-    line-height: 0.95;
-
-    letter-spacing: -0.03em;
+.food-modal-content {
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
 }
 
 
-.food-modal-description {
-    margin: 0;
+/* =========================================
+   CLOSE BUTTON
+   ========================================= */
 
-    color: #666;
+.modal-close {
+  position: absolute;
 
-    line-height: 1.7;
+  top: 15px;
+  right: 15px;
+
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: white;
+
+  cursor: pointer;
+
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+
+  z-index: 10;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.modal-close:hover {
+  background: #f3f3f3;
+  transform: scale(1.05);
 }
 
 
-/* -------------------------
-   SECTIONS
-------------------------- */
+/* =========================================
+   FOOD IMAGE
+   ========================================= */
 
-.food-modal-section {
-    margin-top: 40px;
+.food-modal-image {
+  width: 100%;
 
-    padding-top: 30px;
+  max-height: 300px;
 
-    border-top: 1px solid #ddd;
+  object-fit: cover;
+
+  display: block;
+
+  border-radius: 14px;
+
+  margin-bottom: 24px;
 }
 
 
-.food-modal-section h3 {
-    margin: 0 0 12px;
+/* =========================================
+   FOOD NAME
+   ========================================= */
 
-    font-size: 0.75rem;
+.food-modal h2 {
+  margin: 0;
 
-    text-transform: uppercase;
+  font-size: 28px;
+  font-weight: 700;
 
-    letter-spacing: 0.12em;
+  line-height: 1.2;
+
+  color: #222;
+}
+
+.thai-name {
+  margin: 6px 0 0;
+
+  font-size: 16px;
+
+  color: #777;
+}
+
+.food-brand {
+  margin: 8px 0 0;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #999;
 }
 
 
-.food-modal-section p {
-    margin: 0;
+/* =========================================
+   GENERAL FOOD INFORMATION
+   ========================================= */
 
-    color: #666;
+.food-section {
+  margin-top: 24px;
+}
 
-    line-height: 1.7;
+.food-section h3 {
+  margin: 0 0 10px;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  color: #222;
+}
+
+.food-section p {
+  margin: 0;
+
+  font-size: 15px;
+  line-height: 1.6;
+
+  color: #555;
 }
 
 
-/* -------------------------
-   NUTRITION
-------------------------- */
+/* =========================================
+   PRICE
+   ========================================= */
 
-.nutrition-grid {
-    display: grid;
+.food-price {
+  margin-top: 12px;
 
-    grid-template-columns:
-        repeat(2, 1fr);
+  font-size: 18px;
+  font-weight: 600;
 
-    gap: 24px;
+  color: #222;
 }
 
 
-.nutrition-grid div {
-    display: flex;
+/* =========================================
+   CATEGORY
+   ========================================= */
 
-    flex-direction: column;
+.food-category {
+  display: inline-block;
 
-    gap: 3px;
+  margin-top: 12px;
+  padding: 5px 12px;
+
+  border-radius: 20px;
+
+  background: #f3f3f3;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  color: #555;
 }
 
 
-.nutrition-grid strong {
-    font-family: Georgia, serif;
+/* =========================================
+   NUTRITION INFORMATION
+   ========================================= */
 
-    font-size: 1.5rem;
+.nutrition-section {
+  margin-top: 28px;
 
-    font-weight: 400;
+  padding-top: 20px;
+
+  border-top: 1px solid #eee;
+}
+
+.nutrition-section h3 {
+  margin: 0 0 14px;
+
+  font-size: 19px;
+  font-weight: 600;
+
+  color: #222;
 }
 
 
-.nutrition-grid span {
-    font-size: 0.75rem;
+/* Individual nutrition row */
 
-    color: #888;
+.nutrition-row {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 9px 0;
+
+  border-bottom: 1px solid #eee;
+
+  font-size: 14px;
+}
+
+.nutrition-row:last-child {
+  border-bottom: none;
+}
+
+.nutrition-row span:first-child {
+  color: #666;
+}
+
+.nutrition-row span:last-child {
+  font-weight: 600;
+
+  color: #333;
+
+  text-align: right;
 }
 
 
-/* -------------------------
-   ANIMATIONS
-------------------------- */
+/* =========================================
+   INGREDIENTS & ALLERGENS
+   ========================================= */
 
-@keyframes modal-fade-in {
-    from {
-        opacity: 0;
-    }
+.food-ingredients,
+.food-allergens {
+  margin-top: 24px;
+}
 
-    to {
-        opacity: 1;
-    }
+.food-ingredients h3,
+.food-allergens h3 {
+  margin: 0 0 8px;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  color: #222;
+}
+
+.food-ingredients p,
+.food-allergens p {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  color: #555;
 }
 
 
-@keyframes modal-slide-up {
-    from {
-        opacity: 0;
+/* =========================================
+   ALLERGEN WARNING
+   ========================================= */
 
-        transform:
-            translateY(20px);
-    }
+.food-allergens {
+  padding: 14px;
 
-    to {
-        opacity: 1;
+  border-radius: 10px;
 
-        transform:
-            translateY(0);
-    }
+  background: #faf6f2;
+}
+
+.food-allergens p {
+  color: #666;
 }
 
 
-/* -------------------------
+/* =========================================
    MOBILE
-------------------------- */
+   ========================================= */
 
-@media (max-width: 750px) {
+@media (max-width: 600px) {
+  .modal-overlay {
+    padding: 12px;
+  }
 
-    .food-modal-overlay {
-        padding: 15px;
-    }
+  .food-modal {
+    width: 100%;
+    max-height: 90vh;
 
+    border-radius: 16px;
+  }
 
-    .food-modal {
-        grid-template-columns: 1fr;
+  .food-modal-content {
+    max-height: 90vh;
 
-        max-height: 95vh;
+    padding: 22px;
+  }
 
-        overflow-y: auto;
-    }
+  .food-modal-image {
+    max-height: 240px;
 
+    margin-bottom: 20px;
+  }
 
-    .food-modal-image {
-        min-height: 300px;
+  .food-modal h2 {
+    font-size: 24px;
+  }
 
-        height: 45vh;
-    }
+  .modal-close {
+    top: 12px;
+    right: 12px;
 
-
-    .food-modal-content {
-        padding: 35px 25px 45px;
-    }
-
-
-    .food-modal-content h2 {
-        font-size: 2.8rem;
-    }
-
+    width: 34px;
+    height: 34px;
+  }
 }

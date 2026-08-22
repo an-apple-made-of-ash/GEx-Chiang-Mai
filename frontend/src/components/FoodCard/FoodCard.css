@@ -64,7 +64,7 @@
 
 
 .food-card-content {
-    padding: 20px 4px 28px;
+    padding: 16px 20px 20px 20px;
 }
 
 
@@ -93,19 +93,8 @@
 }
 
 
-.food-card-description {
-    margin: 0;
-
-    color: #777;
-
-    font-size: 0.9rem;
-
-    line-height: 1.5;
-
-    display: -webkit-box;
-
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-
-    overflow: hidden;
+.food-card-price {
+    margin: 6px 0 0;
+    font-size: 1rem;
+    font-weight: 600;
 }

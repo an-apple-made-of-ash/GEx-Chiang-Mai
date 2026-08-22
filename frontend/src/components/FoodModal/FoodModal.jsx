@@ -8,159 +8,108 @@ function FoodModal({ food, onClose }) {
 
 
     return (
+        <div className="modal-overlay" onClick={onClose}>
         <div
-            className="food-modal-overlay"
-            onClick={onClose}
+            className="food-modal"
+            onClick={(e) => e.stopPropagation()}
         >
-            <div
-                className="food-modal"
-                onClick={(event) =>
-                    event.stopPropagation()
-                }
-            >
+            <button className="modal-close" onClick={onClose}>
+            ×
+            </button>
 
-                {/* Close button */}
+            <div className="food-modal-content">
 
-                <button
-                    className="food-modal-close"
-                    onClick={onClose}
-                    aria-label="Close"
-                >
-                    <span className="close-icon">
-                        <span className="close-line close-line-one" />
-                        <span className="close-line close-line-two" />
-                    </span>
-                </button>
+            <img
+                src={food.image}
+                alt={food.english_name}
+                className="food-modal-image"
+            />
 
+            <h2>{food.english_name}</h2>
 
-                {/* Image */}
+            {food.thai_name && (
+                <p className="thai-name">{food.thai_name}</p>
+            )}
 
-                <div className="food-modal-image">
-                    {food.image ? (
-                        <img
-                            src={food.image}
-                            alt={food.name}
-                        />
-                    ) : (
-                        <div className="food-modal-placeholder">
-                            No image
-                        </div>
-                    )}
+            {food.brand && (
+                <p className="food-brand">{food.brand}</p>
+            )}
+
+            {/* Your existing food information */}
+
+            <div className="nutrition-section">
+                <h3>Nutrition Information</h3>
+
+                <div className="nutrition-row">
+                <span>Serving Size</span>
+                <span>{food.serving_size || "-"}</span>
                 </div>
 
-
-                {/* Content */}
-
-                <div className="food-modal-content">
-
-                    <p className="food-modal-category">
-                        {food.category}
-                    </p>
-
-                    <h2>
-                        {food.name}
-                    </h2>
-
-                    <p className="food-modal-description">
-                        {food.description}
-                    </p>
-
-
-                    {/* Ingredients */}
-
-                    {food.ingredients && (
-                        <section className="food-modal-section">
-
-                            <h3>
-                                Ingredients
-                            </h3>
-
-                            <p>
-                                {food.ingredients}
-                            </p>
-
-                        </section>
-                    )}
-
-
-                    {/* Allergens */}
-
-                    {food.allergens && (
-                        <section className="food-modal-section">
-
-                            <h3>
-                                Allergens
-                            </h3>
-
-                            <p>
-                                {food.allergens}
-                            </p>
-
-                        </section>
-                    )}
-
-
-                    {/* Nutrition */}
-
-                    <section className="food-modal-section">
-
-                        <h3>
-                            Nutrition
-                        </h3>
-
-                        <div className="nutrition-grid">
-
-                            <div>
-                                <strong>
-                                    {food.calories ?? "—"}
-                                </strong>
-
-                                <span>
-                                    kcal
-                                </span>
-                            </div>
-
-
-                            <div>
-                                <strong>
-                                    {food.protein ?? "—"}
-                                </strong>
-
-                                <span>
-                                    g protein
-                                </span>
-                            </div>
-
-
-                            <div>
-                                <strong>
-                                    {food.carbohydrates ?? "—"}
-                                </strong>
-
-                                <span>
-                                    g carbs
-                                </span>
-                            </div>
-
-
-                            <div>
-                                <strong>
-                                    {food.fat ?? "—"}
-                                </strong>
-
-                                <span>
-                                    g fat
-                                </span>
-                            </div>
-
-                        </div>
-
-                    </section>
-
+                <div className="nutrition-row">
+                <span>Calories</span>
+                <span>{food.calories ?? "-"} kcal</span>
                 </div>
+
+                <div className="nutrition-row">
+                <span>Total Fat</span>
+                <span>{food.total_fats ?? "-"} g</span>
+                </div>
+
+                <div className="nutrition-row">
+                <span>Saturated Fat</span>
+                <span>{food.saturated_fat ?? "-"} g</span>
+                </div>
+
+                <div className="nutrition-row">
+                <span>Cholesterol</span>
+                <span>{food.cholesterol ?? "-"} mg</span>
+                </div>
+
+                <div className="nutrition-row">
+                <span>Protein</span>
+                <span>{food.protein ?? "-"} g</span>
+                </div>
+
+                <div className="nutrition-row">
+                <span>Total Carbohydrates</span>
+                <span>{food.total_carbohydrates ?? "-"} g</span>
+                </div>
+
+                <div className="nutrition-row">
+                <span>Dietary Fibre</span>
+                <span>{food.dietary_fibre ?? "-"} g</span>
+                </div>
+
+                <div className="nutrition-row">
+                <span>Total Sugars</span>
+                <span>{food.total_sugars ?? "-"} g</span>
+                </div>
+
+                <div className="nutrition-row">
+                <span>Sodium</span>
+                <span>{food.sodium ?? "-"} mg</span>
+                </div>
+            </div>
+
+            {/* Ingredients */}
+            {food.ingredients && (
+                <div className="food-section">
+                <h3>Ingredients</h3>
+                <p>{food.ingredients}</p>
+                </div>
+            )}
+
+            {/* Allergens */}
+            {food.allergens && (
+                <div className="food-section">
+                <h3>Allergens</h3>
+                <p>{food.allergens}</p>
+                </div>
+            )}
 
             </div>
         </div>
+        </div>                                                
     );
 }
 

@@ -1,1 +1,4 @@
-from .food import Food
+from flask_sqlalchemy import SQLAlchemy
+
+
+db = SQLAlchemy()

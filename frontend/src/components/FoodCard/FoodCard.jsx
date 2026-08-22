@@ -1,6 +1,5 @@
 import "./FoodCard.css";
 
-
 function FoodCard({ food, onClick }) {
     return (
         <article
@@ -11,7 +10,7 @@ function FoodCard({ food, onClick }) {
                 {food.image ? (
                     <img
                         src={food.image}
-                        alt={food.name}
+                        alt={food.english_name}
                     />
                 ) : (
                     <div className="food-card-placeholder">
@@ -25,15 +24,22 @@ function FoodCard({ food, onClick }) {
                     {food.category}
                 </p>
 
-                <h2>{food.name}</h2>
+                <h2>{food.english_name}</h2>
 
-                <p className="food-card-description">
-                    {food.description}
-                </p>
+                {food.thai_name && (
+                    <p className="food-card-thai-name">
+                        {food.thai_name}
+                    </p>
+                )}
+
+                {food.price !== null && food.price !== undefined && (
+                    <p className="food-card-price">
+                        ฿{Number(food.price).toFixed(2)}
+                    </p>
+                )}
             </div>
         </article>
     );
 }
-
 
 export default FoodCard;
