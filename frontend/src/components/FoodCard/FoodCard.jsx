@@ -9,7 +9,7 @@ function FoodCard({ food, onClick }) {
             <div className="food-card-image">
                 {food.image ? (
                     <img
-                        src={food.image}
+                        src={`/images/${food.category}/${food.image}.jpg`}
                         alt={food.english_name}
                     />
                 ) : (

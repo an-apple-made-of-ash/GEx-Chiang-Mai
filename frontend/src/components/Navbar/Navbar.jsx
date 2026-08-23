@@ -22,12 +22,12 @@ function Navbar() {
                     Food
                 </a>
 
-                <a
+                {/* <a
                     href="/meal-plan"
                     className="navbar-link"
                 >
                     Meal Plan
-                </a>
+                </a> */}
 
             </nav>
 

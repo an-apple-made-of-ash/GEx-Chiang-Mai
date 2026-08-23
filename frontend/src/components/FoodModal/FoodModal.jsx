@@ -20,7 +20,7 @@ function FoodModal({ food, onClose }) {
             <div className="food-modal-content">
 
             <img
-                src={food.image}
+                src={`/images/${food.category}/${food.image}.jpg`}
                 alt={food.english_name}
                 className="food-modal-image"
             />
