@@ -1,6 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
-
-import { getFoods } from "../../services/foodapi";
+import { useMemo, useState } from "react";
 
 import FoodFilters from "../../components/FoodFilters/FoodFilters";
 import FoodGallery from "../../components/FoodGallery/FoodGallery";
@@ -8,46 +6,15 @@ import FoodModal from "../../components/FoodModal/FoodModal";
 
 import "./FoodPage.css";
 
-
-function FoodPage() {
-    const [foods, setFoods] = useState([]);
-
+function FoodPage({ foods = [], loading, error }) {
     const [selectedFood, setSelectedFood] = useState(null);
-
     const [search, setSearch] = useState("");
-
     const [selectedCategory, setSelectedCategory] =
         useState("All");
-
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-
-    /*
-     * Load foods
-     */
-
-    useEffect(() => {
-        async function loadFoods() {
-            try {
-                const data = await getFoods();
-
-                setFoods(data);
-            } catch (err) {
-                setError(err.message);
-            } finally {
-                setLoading(false);
-            }
-        }
-
-        loadFoods();
-    }, []);
-
 
     /*
      * Get unique categories
      */
-
     const categories = useMemo(() => {
         const uniqueCategories = new Set();
 
@@ -60,32 +27,27 @@ function FoodPage() {
         return [...uniqueCategories].sort();
     }, [foods]);
 
-
     /*
      * Filter foods
      */
-
     const filteredFoods = useMemo(() => {
         const searchTerm = search
             .trim()
             .toLowerCase();
 
         return foods.filter((food) => {
-
             const matchesSearch =
                 !searchTerm ||
-                food.name
+                food.english_name
                     ?.toLowerCase()
                     .includes(searchTerm) ||
-                food.description
+                food.thai_name
                     ?.toLowerCase()
                     .includes(searchTerm);
-
 
             const matchesCategory =
                 selectedCategory === "All" ||
                 food.category === selectedCategory;
-
 
             return (
                 matchesSearch &&
@@ -98,11 +60,9 @@ function FoodPage() {
         selectedCategory,
     ]);
 
-
     /*
      * Loading
      */
-
     if (loading) {
         return (
             <main className="food-page">
@@ -111,11 +71,9 @@ function FoodPage() {
         );
     }
 
-
     /*
      * Error
      */
-
     if (error) {
         return (
             <main className="food-page">
@@ -124,23 +82,17 @@ function FoodPage() {
         );
     }
 
-
     /*
      * Food selection
      */
-
     function handleFoodClick(food) {
         setSelectedFood(food);
     }
 
-
     return (
         <main className="food-page">
-
             {/* Hero */}
-
             <section className="hero">
-
                 <p className="hero-eyebrow">
                     GEx CHIANG MAI
                 </p>
@@ -154,16 +106,11 @@ function FoodPage() {
                 <p className="hero-description">
                     Your one-stop portal to healthy eating in 7-Eleven
                 </p>
-
             </section>
 
-
             {/* Gallery */}
-
             <section className="gallery-section">
-
                 <div className="gallery-header">
-
                     <div>
                         <p className="section-eyebrow">
                             EXPLORE
@@ -182,9 +129,7 @@ function FoodPage() {
                             ? "dish"
                             : "dishes"}
                     </p>
-
                 </div>
-
 
                 <FoodFilters
                     search={search}
@@ -193,7 +138,6 @@ function FoodPage() {
                     selectedCategory={selectedCategory}
                     onCategoryChange={setSelectedCategory}
                 />
-
 
                 <FoodGallery
                     foods={filteredFoods}
@@ -206,12 +150,9 @@ function FoodPage() {
                         onClose={() => setSelectedFood(null)}
                     />
                 )}
-
             </section>
-
         </main>
     );
 }
-
 
 export default FoodPage;

@@ -1,10 +1,8 @@
 import "./Navbar.css";
 
-
-function Navbar() {
+function Navbar({ activePage, setActivePage }) {
     return (
         <header className="navbar">
-
             <a
                 href="/"
                 className="navbar-logo"
@@ -12,28 +10,27 @@ function Navbar() {
                 CHIANG MAI 7-ELEVEN
             </a>
 
-
             <nav className="navbar-links">
-
-                <a
-                    href="/"
-                    className="navbar-link active"
+                <button
+                    className={`navbar-link ${
+                        activePage === "food" ? "active" : ""
+                    }`}
+                    onClick={() => setActivePage("food")}
                 >
                     Food
-                </a>
+                </button>
 
-                {/* <a
-                    href="/meal-plan"
-                    className="navbar-link"
+                <button
+                    className={`navbar-link ${
+                        activePage === "mealplan" ? "active" : ""
+                    }`}
+                    onClick={() => setActivePage("mealplan")}
                 >
                     Meal Plan
-                </a> */}
-
+                </button>
             </nav>
-
         </header>
     );
 }
-
 
 export default Navbar;

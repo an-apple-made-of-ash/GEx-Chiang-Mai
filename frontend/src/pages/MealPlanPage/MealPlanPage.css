@@ -1,0 +1,15 @@
+.meal-plan-page {
+    padding: 40px 6%;
+}
+
+.meal-plan-page h1 {
+    margin-bottom: 30px;
+}
+
+/* Meal Sections */
+
+.meal-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}

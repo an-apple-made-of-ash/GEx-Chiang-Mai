@@ -1,0 +1,29 @@
+.nutrition-summary {
+    padding: 24px;
+    margin-bottom: 35px;
+    border-radius: 15px;
+}
+
+.nutrition-summary h2 {
+    margin-top: 0;
+}
+
+.nutrition-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.nutrition-grid div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nutrition-grid span {
+    font-size: 0.9rem;
+}
+
+.nutrition-grid strong {
+    font-size: 1.5rem;
+}

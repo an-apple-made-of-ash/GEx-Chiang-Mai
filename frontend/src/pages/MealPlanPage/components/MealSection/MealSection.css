@@ -1,0 +1,105 @@
+.meal-section {
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.meal-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.meal-section-header h2 {
+    margin: 0;
+}
+
+.meal-nutrition {
+    margin: 6px 0 0;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Add Food Button */
+
+.add-food-button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Empty Meal */
+
+.empty-meal {
+    margin-bottom: 0;
+    opacity: 0.6;
+}
+
+/* Food List */
+
+.meal-food-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.meal-food-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.meal-food-info {
+    flex: 1;
+}
+
+.meal-food-info h3 {
+    margin: 0 0 6px;
+}
+
+.meal-food-info p {
+    margin: 0;
+}
+
+.thai-name {
+    margin: 0;
+    opacity: 0.7;
+}
+
+.food-nutrition {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+}
+
+/* Quantity Controls */
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.quantity-controls button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.quantity-controls span {
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Remove Button */
+
+.remove-food-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
